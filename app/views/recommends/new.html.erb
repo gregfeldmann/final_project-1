@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @recommend.errors.any? %>
+  <% @recommend.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Recommend</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_recommend" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for entertainment_id -->
+      <div class="form-group">
+        <label for="entertainment_id" class="control-label">
+          Entertainment
+        </label>
+
+          <%= select_tag(:entertainment_id, options_from_collection_for_select(Entertainment.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+
+        <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @recommend.user_id %>">
+
+
+        <input type="hidden" id="username" name="username" placeholder="Username" class="form-control" value="<%= @recommend.username %>">
+
+
+      <!-- Label and input for receiver_id -->
+      <div class="form-group">
+        <label for="receiver_id" class="control-label">
+          Receiver
+        </label>
+
+        <%= select_tag :receiver_id, options_from_collection_for_select(User.all, :id, :username), :class => "form-control" %>
+        
+      </div>
+
+      <button class="btn btn-success">
+        Create Recommend
+      </button>
+      or
+      <a href="/recommends">Cancel</a>
+    </form>
+  </div>
+</div>
