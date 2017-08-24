@@ -1,6 +1,7 @@
 class RatingsController < ApplicationController
   def index
     @ratings = Rating.all
+  
 
     render("ratings/index.html.erb")
   end
@@ -8,6 +9,7 @@ class RatingsController < ApplicationController
   def show
     @rating = Rating.find(params[:id])
 
+    @ratings = Rating.all
 
     render("ratings/show.html.erb")
   end

@@ -42,7 +42,12 @@
           Category
         </label>
 
-        <input type="text" id="category" name="category" placeholder="Category" class="form-control" value="<%= @entertainment.category %>">
+        <select name="category" id="category" class="form-control">
+          <option value="Movie">Movie</option>
+          <option value="TV">TV</option>
+        </select>
+  
+     
       </div>
 
       <!-- Label and input for rating -->

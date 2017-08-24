@@ -28,9 +28,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+    
+    validates :username, :presence => true, :uniqueness => true
          
     has_many :ratings, :dependent => :destroy
 
     has_many :recommends, :dependent => :destroy
+    
+    has_many :recommends_where_receiver, :class_name => "Recommends", :foreign_key => "receiver_id"
     
 end

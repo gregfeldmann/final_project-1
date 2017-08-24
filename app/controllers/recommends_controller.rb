@@ -1,6 +1,15 @@
 class RecommendsController < ApplicationController
   def index
-    @recommends = current_user.receiver_id
+    @recommends = Recommend.all
+    
+    #Recommend.where(:receiver_id => :current_user)
+    
+    #Recommend.where(:user_id => :current_user)
+    
+    @recommends_received = Recommend.where(:receiver_id => :current_user)
+    
+    
+    #@recommends = current_user.recommends
 
     render("recommends/index.html.erb")
   end

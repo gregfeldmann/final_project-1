@@ -1,6 +1,11 @@
 class EntertainmentsController < ApplicationController
   def index
     @entertainments = Entertainment.all
+   
+    #@average = @entertainments.ratings.group(:title).average(:rating)
+  
+  #Entertainment.ratings.group(:title).average(:rating)
+  
 
     render("entertainments/index.html.erb")
   end

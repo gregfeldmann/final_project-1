@@ -9,8 +9,8 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Picture</th>
         <th>Entertainment</th>
-        <th>User</th>
         <th>Sender</th>
         <th>Receiver</th>
         <th>Actions</th>
@@ -18,15 +18,33 @@
 
       <% @recommends.each do |recommend| %>
       <tr>
+        <td> <img src="<%= Entertainment.find_by(:id => recommend.entertainment_id).try(:picture) %>" class="img-circle" alt="Responsive image"></td>
         <td><%= Entertainment.find_by(:id => recommend.entertainment_id).try(:title) %></td>
-        <td><%= recommend.user_id %></td>
-        <td><%= User.find_by(:id => recommend.user_id).try(:username) %></td>
-        <td><%= User.find_by(:id => recommend.receiver_id).try(:username)%></td>
+        <td><%= recommend.user.username %></td>
+        <td><%= User.find_by(:id => recommend.receiver_id).try(:username) %></td>
         <td>
           <a href="/recommends/<%= recommend.id %>" class="btn btn-primary">Show</a>
           <a href="/recommends/<%= recommend.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_recommend/<%= recommend.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Test</th>
+      </tr>
+
+      <% @recommends.each do |recommend| %>
+      <tr>
+        <td><%= recommend %></td>
+     
       </tr>
       <% end %>
     </table>
