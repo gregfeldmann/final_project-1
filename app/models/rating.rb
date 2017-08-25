@@ -2,12 +2,14 @@
 #
 # Table name: ratings
 #
-#  id               :integer          not null, primary key
-#  user_id          :integer
-#  entertainment_id :integer
-#  rating           :string
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                  :integer          not null, primary key
+#  user_id             :integer
+#  entertainment_id    :integer
+#  rating              :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  entertainment_title :string
+#  title               :string
 #
 
 class Rating < ApplicationRecord

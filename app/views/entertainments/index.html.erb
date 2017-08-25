@@ -16,7 +16,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @entertainments.each do |entertainment| %>
+      <% @entertainments.order(rating: :desc).each do |entertainment| %>
       <tr> 
         <td> <img src="<%= entertainment.picture %>"></td>
         <td><%= entertainment.title %></td>

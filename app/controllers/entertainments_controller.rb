@@ -2,7 +2,7 @@ class EntertainmentsController < ApplicationController
   def index
     @entertainments = Entertainment.all 
     
-    @average = @entertainments.group(:title).average(:rating)
+    @average = @entertainments.group(:title).sum(:rating)
   
   
      # @average_rating = @entertainments.where(:entertaintment)  
