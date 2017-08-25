@@ -16,7 +16,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @recommends.each do |recommend| %>
+      <% @recommends.order(('receiver_id DESC')).each do |recommend| %>
       <tr>
         <td> <img src="<%= recommend.entertainment.picture %>" class="img-circle" alt="Responsive image"></td>
         <td><%= recommend.entertainment.title %></td>
