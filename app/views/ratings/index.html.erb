@@ -17,8 +17,8 @@
 
       <% @ratings.each do |rating| %>
       <tr>
-        <td><%= User.find_by(:id => rating.entertainment_id).try(:username) %></td>
-        <td><%= Entertainment.find_by(:id => rating.entertainment_id).try(:title) %></td>
+        <td><%= rating.user.username %></td>
+        <td><%= rating.entertainment.title %></td>
         <td><%= rating.rating %></td>
         <td>
           <a href="/ratings/<%= rating.id %>" class="btn btn-primary">Show</a>

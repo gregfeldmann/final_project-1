@@ -18,4 +18,7 @@ class Rating < ApplicationRecord
 
     validates_numericality_of :rating, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 10
     
+    validates :user_id, :uniqueness => {:scope => [:entertainment_id], :message => "can only rate an entertainment once" }
+    
+   # scope :average_rating,includes(:ratings).group('entertainment.title').where('AVG(ratings.rating)');
 end

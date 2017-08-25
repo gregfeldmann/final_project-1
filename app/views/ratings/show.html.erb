@@ -5,11 +5,11 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>User</dt>
-      <dd><%= @rating.user_id %></dd>
+      <dt>Sender</dt>
+      <dd><%= @rating.user.username %></dd>
 
       <dt>Entertainment</dt>
-      <dd><%= @rating.entertainment_id %></dd>
+      <dd><%= @rating.entertainment.title %></dd>
 
       <dt>Rating</dt>
       <dd><%= @rating.rating %></dd>

@@ -6,13 +6,10 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Entertainment</dt>
-      <dd><%= @recommend.entertainment_id %></dd>
+      <dd><%= @recommend.entertainment.title %></dd>
 
-      <dt>User</dt>
-      <dd><%= @recommend.user_id %></dd>
-
-      <dt>Username</dt>
-      <dd><%= @recommend.username %></dd>
+      <dt>Sender</dt>
+      <dd><%= @recommend.user.username %></dd>
 
       <dt>Receiver</dt>
       <dd><%= @recommend.receiver_id %></dd>

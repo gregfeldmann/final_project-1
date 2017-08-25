@@ -17,4 +17,5 @@ class Recommend < ApplicationRecord
 
     belongs_to :entertainment
     
+    validates :user_id, :uniqueness => {:scope => [:receiver_id, :entertainment_id], :message => "can only recommend an entertainment to another user once" }
 end

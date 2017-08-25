@@ -2,12 +2,15 @@ class RecommendsController < ApplicationController
   def index
     @recommends = Recommend.all
     
+    #where(:receiver_id => :current_user.id)
+    
+     #@recommends.user_id = current_user.id
+    
     #Recommend.where(:receiver_id => :current_user)
     
     #Recommend.where(:user_id => :current_user)
     
-    @recommends_received = Recommend.where(:receiver_id => :current_user)
-    
+    #@recommends_received = Recommend.where(:receiver_id => :current_user)
     
     #@recommends = current_user.recommends
 
@@ -17,6 +20,8 @@ class RecommendsController < ApplicationController
   def show
     @recommend = Recommend.find(params[:id])
 
+    @user = User.all
+    
     render("recommends/show.html.erb")
   end
 

@@ -21,6 +21,12 @@ class Entertainment < ApplicationRecord
     
     validates :title, :presence => true, :uniqueness => true
     
+ 
+  def average_rating
+    self.class.average(:rating).where(:title => self.title)
+  end
+
+    
     #def average_rating
         
         #@ratings.group(:title.average(:rating)
